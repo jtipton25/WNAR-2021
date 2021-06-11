@@ -35,14 +35,20 @@ library(knitr)
 library(pgR)
 library(mvnfast)
 library(knitcitations)
+library(renv)
+# renv setup -- don't mess with these
+# renv::init()
+# renv::snapshot()
+```
+
+```{r, eval = FALSE, echo = FALSE}
+# setup R environment to ensure reproducibility
+renv::restore()
 ```
 
 ```{r, echo=FALSE, message=FALSE}
 biblio <- bibtex::read.bib("pg.bib")
 # biblio <- bibtex::read.bib(here("2018", "mizzou", "mizzou", "mizzou.bib"))
-# renv::init()
-# renv::snapshot()
-renv::restore()
 ```
 
 
