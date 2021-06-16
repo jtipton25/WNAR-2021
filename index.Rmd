@@ -42,7 +42,7 @@ library(renv)
 ```
 
 ```{r, eval = FALSE, echo = FALSE}
-# setup R environment to ensure reproducibility
+# setup R environment to ensure reproducibility, must run interactively 
 renv::restore()
 ```
 
@@ -438,24 +438,21 @@ $$
 
 ## Computational Details
 
-1) Fit the calibration model.
+1) Sequential fitting
 
-2) Use posterior distribution from stage (1) to generate predictions of climate independent in space and time.
+    a) Fit the calibration model.
 
-3) Smooth the posterior distribution from stage (2) using dynamic linear model.
+    b) Use posterior distribution from stage (1) to generate predictions of climate independent in space and time.
 
-    * Use posterior mean estimates which does not fully quantify model uncertainty.
+    c) Smooth the posterior distribution from stage (2) using dynamic linear model.
 
-    * Goal: Use recursive Bayesian ideas from end of talk.
- 
+        * Use posterior mean estimates which does not fully quantify model uncertainty.
 
-4) Fully Bayesian joint estimation.
+
+2) Fully Bayesian joint estimation.
 
 <hr style="height:60px; visibility:hidden;" />
 
-<font size="3">
-`r paste0(capture.output(print(biblio["hooten2019prior"])), collapse = " ")`
-</font>
 
 
 
@@ -824,11 +821,6 @@ $\color{red}{\bm{X}(t) = \begin{pmatrix} \bm{x}'(\bm{s}_1, t) \\ \vdots \\ \bm{x
 
 - $\mathbf{Z}_0 \sim \oN{N} (\color{red}{\bm{X}'(1) \bs{\gamma}} + \color{purple}{\bm{W} \bs{\alpha}(1)}, \sigma^2_0 \bm{I})$ is the observed modern climate state.
 
----
-
-```{r, fig.align='center', out.width = '100%'}
-knitr::include_graphics("./images/estimated-fixed-effects-fixed-mu.png") 
-```
 
 ## Process model -- $\color{purple}{\mbox{random effects}}$  
 
